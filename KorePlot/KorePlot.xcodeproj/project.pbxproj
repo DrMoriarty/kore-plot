@@ -1,0 +1,438 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9827F966192E126600508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
+		9827F96B192E126600508CD8 /* KorePlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F96A192E126600508CD8 /* KorePlot.h */; };
+		9827F974192E126600508CD8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F973192E126600508CD8 /* XCTest.framework */; };
+		9827F975192E126600508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
+		9827F977192E126600508CD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F976192E126600508CD8 /* UIKit.framework */; };
+		9827F97A192E126600508CD8 /* libKorePlot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F962192E126600508CD8 /* libKorePlot.a */; };
+		9827F980192E126600508CD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9827F97E192E126600508CD8 /* InfoPlist.strings */; };
+		9827F982192E126600508CD8 /* KorePlotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F981192E126600508CD8 /* KorePlotTests.m */; };
+		9827F9DB192E142F00508CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9DA192E142F00508CD8 /* CoreGraphics.framework */; };
+		9827F9DE192E148400508CD8 /* KPPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9DD192E148400508CD8 /* KPPlotView.m */; };
+		9827F9E1192E170700508CD8 /* KPPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9E0192E170700508CD8 /* KPPlot.m */; };
+		9827F9E5192E172100508CD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9E4192E172100508CD8 /* QuartzCore.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9827F978192E126600508CD8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9827F95A192E126600508CD8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9827F961192E126600508CD8;
+			remoteInfo = KorePlot;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9827F960192E126600508CD8 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				9827F96B192E126600508CD8 /* KorePlot.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		9827F962192E126600508CD8 /* libKorePlot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKorePlot.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		9827F965192E126600508CD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		9827F969192E126600508CD8 /* KorePlot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KorePlot-Prefix.pch"; sourceTree = "<group>"; };
+		9827F96A192E126600508CD8 /* KorePlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KorePlot.h; sourceTree = "<group>"; };
+		9827F972192E126600508CD8 /* KorePlotTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KorePlotTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		9827F973192E126600508CD8 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		9827F976192E126600508CD8 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		9827F97D192E126600508CD8 /* KorePlotTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KorePlotTests-Info.plist"; sourceTree = "<group>"; };
+		9827F97F192E126600508CD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		9827F981192E126600508CD8 /* KorePlotTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KorePlotTests.m; sourceTree = "<group>"; };
+		9827F9DA192E142F00508CD8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		9827F9DC192E148400508CD8 /* KPPlotView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlotView.h; sourceTree = "<group>"; };
+		9827F9DD192E148400508CD8 /* KPPlotView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlotView.m; sourceTree = "<group>"; };
+		9827F9DF192E170700508CD8 /* KPPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPPlot.h; sourceTree = "<group>"; };
+		9827F9E0192E170700508CD8 /* KPPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPPlot.m; sourceTree = "<group>"; };
+		9827F9E4192E172100508CD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		9827F95F192E126600508CD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9827F9DB192E142F00508CD8 /* CoreGraphics.framework in Frameworks */,
+				9827F966192E126600508CD8 /* Foundation.framework in Frameworks */,
+				9827F9E5192E172100508CD8 /* QuartzCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9827F96F192E126600508CD8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9827F974192E126600508CD8 /* XCTest.framework in Frameworks */,
+				9827F977192E126600508CD8 /* UIKit.framework in Frameworks */,
+				9827F975192E126600508CD8 /* Foundation.framework in Frameworks */,
+				9827F97A192E126600508CD8 /* libKorePlot.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9827F959192E126600508CD8 = {
+			isa = PBXGroup;
+			children = (
+				9827F967192E126600508CD8 /* KorePlot */,
+				9827F97B192E126600508CD8 /* KorePlotTests */,
+				9827F964192E126600508CD8 /* Frameworks */,
+				9827F963192E126600508CD8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		9827F963192E126600508CD8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				9827F962192E126600508CD8 /* libKorePlot.a */,
+				9827F972192E126600508CD8 /* KorePlotTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		9827F964192E126600508CD8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9827F9E4192E172100508CD8 /* QuartzCore.framework */,
+				9827F9DA192E142F00508CD8 /* CoreGraphics.framework */,
+				9827F965192E126600508CD8 /* Foundation.framework */,
+				9827F973192E126600508CD8 /* XCTest.framework */,
+				9827F976192E126600508CD8 /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		9827F967192E126600508CD8 /* KorePlot */ = {
+			isa = PBXGroup;
+			children = (
+				9827F96A192E126600508CD8 /* KorePlot.h */,
+				9827F9DC192E148400508CD8 /* KPPlotView.h */,
+				9827F9DD192E148400508CD8 /* KPPlotView.m */,
+				9827F9DF192E170700508CD8 /* KPPlot.h */,
+				9827F9E0192E170700508CD8 /* KPPlot.m */,
+				9827F968192E126600508CD8 /* Supporting Files */,
+			);
+			path = KorePlot;
+			sourceTree = "<group>";
+		};
+		9827F968192E126600508CD8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9827F969192E126600508CD8 /* KorePlot-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		9827F97B192E126600508CD8 /* KorePlotTests */ = {
+			isa = PBXGroup;
+			children = (
+				9827F981192E126600508CD8 /* KorePlotTests.m */,
+				9827F97C192E126600508CD8 /* Supporting Files */,
+			);
+			path = KorePlotTests;
+			sourceTree = "<group>";
+		};
+		9827F97C192E126600508CD8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				9827F97D192E126600508CD8 /* KorePlotTests-Info.plist */,
+				9827F97E192E126600508CD8 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		9827F961192E126600508CD8 /* KorePlot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlot" */;
+			buildPhases = (
+				9827F95E192E126600508CD8 /* Sources */,
+				9827F95F192E126600508CD8 /* Frameworks */,
+				9827F960192E126600508CD8 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KorePlot;
+			productName = KorePlot;
+			productReference = 9827F962192E126600508CD8 /* libKorePlot.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		9827F971192E126600508CD8 /* KorePlotTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9827F988192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlotTests" */;
+			buildPhases = (
+				9827F96E192E126600508CD8 /* Sources */,
+				9827F96F192E126600508CD8 /* Frameworks */,
+				9827F970192E126600508CD8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				9827F979192E126600508CD8 /* PBXTargetDependency */,
+			);
+			name = KorePlotTests;
+			productName = KorePlotTests;
+			productReference = 9827F972192E126600508CD8 /* KorePlotTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		9827F95A192E126600508CD8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = Trilan;
+			};
+			buildConfigurationList = 9827F95D192E126600508CD8 /* Build configuration list for PBXProject "KorePlot" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 9827F959192E126600508CD8;
+			productRefGroup = 9827F963192E126600508CD8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				9827F961192E126600508CD8 /* KorePlot */,
+				9827F971192E126600508CD8 /* KorePlotTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		9827F970192E126600508CD8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9827F980192E126600508CD8 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		9827F95E192E126600508CD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9827F9DE192E148400508CD8 /* KPPlotView.m in Sources */,
+				9827F9E1192E170700508CD8 /* KPPlot.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9827F96E192E126600508CD8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9827F982192E126600508CD8 /* KorePlotTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9827F979192E126600508CD8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9827F961192E126600508CD8 /* KorePlot */;
+			targetProxy = 9827F978192E126600508CD8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		9827F97E192E126600508CD8 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9827F97F192E126600508CD8 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		9827F983192E126600508CD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		9827F984192E126600508CD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9827F986192E126600508CD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/KorePlot.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KorePlot/KorePlot-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		9827F987192E126600508CD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/KorePlot.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KorePlot/KorePlot-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		9827F989192E126600508CD8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KorePlot/KorePlot-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "KorePlotTests/KorePlotTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		9827F98A192E126600508CD8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "KorePlot/KorePlot-Prefix.pch";
+				INFOPLIST_FILE = "KorePlotTests/KorePlotTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		9827F95D192E126600508CD8 /* Build configuration list for PBXProject "KorePlot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9827F983192E126600508CD8 /* Debug */,
+				9827F984192E126600508CD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9827F986192E126600508CD8 /* Debug */,
+				9827F987192E126600508CD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		9827F988192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlotTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9827F989192E126600508CD8 /* Debug */,
+				9827F98A192E126600508CD8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 9827F95A192E126600508CD8 /* Project object */;
+}
