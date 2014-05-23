@@ -21,6 +21,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     KPPlot *plot = [[KPPlot alloc] initWithIdentifier:@"one" andDelegate:self];
+    plot.dotType = KPPlotDotTypeCircle;
+    plot.lineType = KPPlotLineTypeDashDot;
+    plot.lineWidth = 2.f;
     [plotView addPlot:plot animated:YES];
 }
 

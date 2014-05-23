@@ -21,6 +21,9 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     KPPlot *plot = [[KPPlot alloc] initWithIdentifier:@"two" andDelegate:self];
+    plot.dotType = KPPlotDotTypeCircle;
+    plot.lineType = KPPlotLineTypeDash;
+    plot.plotColor = [UIColor brownColor];
     [plotView addPlot:plot animated:YES];
 }
 

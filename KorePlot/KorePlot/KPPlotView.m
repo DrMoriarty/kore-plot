@@ -67,8 +67,8 @@
 
     CGFloat xscale = r.size.width / plotb.size.width;
     CGFloat yscale = r.size.height / plotb.size.height;
-    //CGContextScaleCTM(ctx, r.size.width / plotb.size.width, r.size.height / plotb.size.height);
-    //CGContextTranslateCTM(ctx, -plotb.origin.x, -plotb.origin.y);
+    CGContextScaleCTM(ctx, 1, -1);
+    CGContextTranslateCTM(ctx, 0, -r.size.height);
     
     CGContextSetInterpolationQuality(ctx, kCGInterpolationNone);
     CGContextSetShouldAntialias(ctx, true);
@@ -84,6 +84,16 @@
             CGContextRestoreGState(ctx);
         } else {
             [l drawInContext:ctx];
+        }
+    }
+    
+    for (CALayer *l in self.layer.sublayers) {
+        if([l isKindOfClass:KPPlot.class]) {
+            KPPlot *p = (KPPlot*)l;
+            CGContextSaveGState(ctx);
+            CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+            [p drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
+            CGContextRestoreGState(ctx);
         }
     }
     
