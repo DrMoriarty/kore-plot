@@ -13,6 +13,7 @@
 @implementation KPPlotView {
     NSMutableArray *plots;
     NSTimer *timer;
+    CGRect plotb;
 }
 
 - (id)initWithFrame:(CGRect)frame
@@ -34,6 +35,7 @@
 
 -(void)internalInit
 {
+    plotb = CGRectNull;
     plots = [NSMutableArray array];
     timer = [NSTimer timerWithTimeInterval:DT target:self selector:@selector(updateAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -60,8 +62,13 @@
 {
     CGContextSaveGState(ctx);
     CGRect r = CGContextGetClipBoundingBox(ctx);
-	CGContextSetFillColorWithColor(ctx, [[UIColor whiteColor] CGColor]);
+	CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
 	CGContextFillRect(ctx, r);
+
+    CGFloat xscale = r.size.width / plotb.size.width;
+    CGFloat yscale = r.size.height / plotb.size.height;
+    //CGContextScaleCTM(ctx, r.size.width / plotb.size.width, r.size.height / plotb.size.height);
+    //CGContextTranslateCTM(ctx, -plotb.origin.x, -plotb.origin.y);
     
     CGContextSetInterpolationQuality(ctx, kCGInterpolationNone);
     CGContextSetShouldAntialias(ctx, true);
@@ -69,7 +76,15 @@
     CGContextSetAllowsFontSmoothing(ctx, false);
 
     for (CALayer *l in self.layer.sublayers) {
-        [l drawInContext:ctx];
+        if([l isKindOfClass:KPPlot.class]) {
+            KPPlot *p = (KPPlot*)l;
+            CGContextSaveGState(ctx);
+            CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+            [p drawInContext:ctx withXScale:xscale andYScale:yscale];
+            CGContextRestoreGState(ctx);
+        } else {
+            [l drawInContext:ctx];
+        }
     }
     
     CGContextRestoreGState(ctx);
@@ -78,7 +93,11 @@
 
 -(void)addPlot:(KPPlot*)plot animated:(BOOL)animated
 {
-    // TODO
+    if(CGRectEqualToRect(plotb, CGRectNull)) {
+        plotb = plot.plotBounds;
+    } else {
+        plotb = CGRectUnion(plotb, plot.plotBounds);
+    }
     [self.layer addSublayer:plot];
     if(animated) {
         [plot startAnimation];

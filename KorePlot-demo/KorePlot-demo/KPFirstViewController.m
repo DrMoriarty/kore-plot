@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    KPPlot *plot = [KPPlot new];
+    KPPlot *plot = [[KPPlot alloc] initWithIdentifier:@"one" andDelegate:self];
     [plotView addPlot:plot animated:YES];
 }
 
@@ -28,6 +28,18 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - KPPlotDelegate
+
+-(NSInteger)numberOfPointsForPlot:(KPPlot *)plot
+{
+    return 10;
+}
+
+-(CGFloat)plot:(KPPlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
+{
+    return sinf(0.5f * point) * 10.f;
 }
 
 @end

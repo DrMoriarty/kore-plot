@@ -11,6 +11,8 @@
 
 @interface KPPlotView : UIView
 
+@property (nonatomic, readonly) CGRect plotBounds;
+
 -(void)addPlot:(KPPlot*)plot animated:(BOOL)animated;
 
 @end
