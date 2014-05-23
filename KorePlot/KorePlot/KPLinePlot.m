@@ -6,10 +6,10 @@
 //  Copyright (c) 2014 Trilan. All rights reserved.
 //
 
-#import "KPPlot.h"
+#import "KPLinePlot.h"
 #import <UIKit/UIKit.h>
 
-@implementation KPPlot {
+@implementation KPLinePlot {
     CGFloat animationProgress;
     NSMutableArray *data;
     NSMutableArray *labels;

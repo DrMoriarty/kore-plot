@@ -52,11 +52,8 @@
 -(void)updateAnimation
 {
     BOOL update = NO;
-    for (CALayer *l in self.layer.sublayers) {
-        if([l isKindOfClass:KPPlot.class]) {
-            KPPlot *kp = (KPPlot*)l;
-            if([kp update:DT]) update = YES;
-        }
+    for (id<KPPlot> kp in plots) {
+        if([kp update:DT]) update = YES;
     }
     if(bounce) {
         CGFloat dx = fabsf(contentOffset.x-targetOffset.x) * 10.f;
@@ -108,41 +105,33 @@
     CGContextSetShouldSmoothFonts(ctx, false);
     CGContextSetAllowsFontSmoothing(ctx, false);
 
-    for (CALayer *l in self.layer.sublayers) {
-        if([l isKindOfClass:KPPlot.class]) {
-            KPPlot *p = (KPPlot*)l;
-            CGContextSaveGState(ctx);
-            CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
-            [p drawInContext:ctx withXScale:xscale andYScale:yscale];
-            CGContextRestoreGState(ctx);
-        } else {
-            [l drawInContext:ctx];
-        }
+    for (id<KPPlot> p in plots) {
+        CGContextSaveGState(ctx);
+        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+        [p drawInContext:ctx withXScale:xscale andYScale:yscale];
+        CGContextRestoreGState(ctx);
     }
     
-    for (CALayer *l in self.layer.sublayers) {
-        if([l isKindOfClass:KPPlot.class]) {
-            KPPlot *p = (KPPlot*)l;
-            CGContextSaveGState(ctx);
-            CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
-            [p drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
-            CGContextRestoreGState(ctx);
-        }
+    for (id<KPPlot> p in plots) {
+        CGContextSaveGState(ctx);
+        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+        [p drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
+        CGContextRestoreGState(ctx);
     }
     
     CGContextRestoreGState(ctx);
 }
 
 
--(void)addPlot:(KPPlot*)plot animated:(BOOL)animated
+-(void)addPlot:(id<KPPlot>)plot animated:(BOOL)animated
 {
     if(CGRectEqualToRect(plotb, CGRectNull)) {
         plotb = plot.plotBounds;
     } else {
         plotb = CGRectUnion(plotb, plot.plotBounds);
     }
-    [self.layer addSublayer:plot];
-    if(animated) {
+    [plots addObject:plot];
+    if(animated && [plot respondsToSelector:@selector(startAnimation)]) {
         [plot startAnimation];
     } 
 }

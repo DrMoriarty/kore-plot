@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    KPPlot *plot = [[KPPlot alloc] initWithIdentifier:@"one" andDelegate:self];
+    KPLinePlot *plot = [[KPLinePlot alloc] initWithIdentifier:@"one" andDelegate:self];
     plot.dotType = KPPlotDotTypeCircle;
     plot.lineType = KPPlotLineTypeDashDot;
     plot.lineWidth = 2.f;
@@ -42,17 +42,17 @@
 
 #pragma mark - KPPlotDelegate
 
--(NSInteger)numberOfPointsForPlot:(KPPlot *)plot
+-(NSInteger)numberOfPointsForPlot:(KPLinePlot *)plot
 {
     return 10;
 }
 
--(CGFloat)plot:(KPPlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
+-(CGFloat)plot:(KPLinePlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return sinf(0.5f * point) * 10.f;
 }
 
--(KPLabel*)labelForPlot:(KPPlot *)plot point:(NSInteger)point
+-(KPLabel*)labelForPlot:(KPLinePlot *)plot point:(NSInteger)point
 {
     KPLabel *l = [KPLabel new];
     CGFloat val = [self plot:plot value:KPPlotPointY forPoint:point];

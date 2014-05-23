@@ -16,6 +16,6 @@
 @property (nonatomic, assign) CGPoint contentOffset;
 @property (nonatomic, assign) BOOL scrollEnabled;
 
--(void)addPlot:(KPPlot*)plot animated:(BOOL)animated;
+-(void)addPlot:(id<KPPlot>)plot animated:(BOOL)animated;
 
 @end

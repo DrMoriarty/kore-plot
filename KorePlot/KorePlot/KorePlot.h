@@ -7,3 +7,4 @@
 //
 
 #import "KPPlotView.h"
+#import "KPLinePlot.h"

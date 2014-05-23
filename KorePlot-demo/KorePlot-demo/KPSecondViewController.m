@@ -20,7 +20,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    KPPlot *plot = [[KPPlot alloc] initWithIdentifier:@"two" andDelegate:self];
+    KPLinePlot *plot = [[KPLinePlot alloc] initWithIdentifier:@"two" andDelegate:self];
     plot.dotType = KPPlotDotTypeCircle;
     plot.lineType = KPPlotLineTypeDash;
     plot.plotColor = [UIColor brownColor];
@@ -42,12 +42,12 @@
 
 #pragma mark - KPPlotDelegate
 
--(NSInteger)numberOfPointsForPlot:(KPPlot *)plot
+-(NSInteger)numberOfPointsForPlot:(KPLinePlot *)plot
 {
     return 20;
 }
 
--(CGFloat)plot:(KPPlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
+-(CGFloat)plot:(KPLinePlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return cosf(0.3f * point) * 5.f;
 }
