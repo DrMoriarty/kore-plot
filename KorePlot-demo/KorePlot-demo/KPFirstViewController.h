@@ -12,5 +12,6 @@
 @interface KPFirstViewController : UIViewController <KPPlotDelegate>
 
 @property (nonatomic, strong) IBOutlet KPPlotView *plotView;
+@property (nonatomic, strong) IBOutlet UIScrollView *scroll;
 
 @end

@@ -25,6 +25,13 @@
     plot.lineType = KPPlotLineTypeDash;
     plot.plotColor = [UIColor brownColor];
     [plotView addPlot:plot animated:YES];
+    plotView.contentSize = CGSizeMake(280, 200);
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.scroll setContentSize:CGSizeMake(480, self.scroll.frame.size.height)];
 }
 
 - (void)didReceiveMemoryWarning

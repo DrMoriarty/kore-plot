@@ -14,7 +14,12 @@
     NSMutableArray *plots;
     NSTimer *timer;
     CGRect plotb;
+    CGPoint panStart, panMove;
+    CGPoint targetOffset;
+    BOOL bounce;
 }
+
+@synthesize contentSize, contentOffset, scrollEnabled;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -37,6 +42,9 @@
 {
     plotb = CGRectNull;
     plots = [NSMutableArray array];
+    contentSize = self.frame.size;
+    contentOffset = CGPointZero;
+    scrollEnabled = YES;
     timer = [NSTimer timerWithTimeInterval:DT target:self selector:@selector(updateAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
 }
@@ -49,6 +57,30 @@
             KPPlot *kp = (KPPlot*)l;
             if([kp update:DT]) update = YES;
         }
+    }
+    if(bounce) {
+        CGFloat dx = fabsf(contentOffset.x-targetOffset.x) * 10.f;
+        dx = DT * (dx < 300.f ? 300.f : dx);
+        CGFloat dy = fabsf(contentOffset.y-targetOffset.y) * 10.f;
+        dy = DT * (dy < 300.f ? 300.f : dy);
+        if(contentOffset.x < targetOffset.x) {
+            contentOffset.x += dx;
+            if(contentOffset.x > targetOffset.x) contentOffset.x = targetOffset.x;
+        }
+        if(contentOffset.x > targetOffset.x) {
+            contentOffset.x -= dx;
+            if(contentOffset.x < targetOffset.x) contentOffset.x = targetOffset.x;
+        }
+        if(contentOffset.y < targetOffset.y) {
+            contentOffset.y += dy;
+            if(contentOffset.y > targetOffset.y) contentOffset.y = targetOffset.y;
+        }
+        if(contentOffset.y > targetOffset.y) {
+            contentOffset.y -= dy;
+            if(contentOffset.y < targetOffset.y) contentOffset.y = targetOffset.y;
+        }
+        update = YES;
+        if(CGPointEqualToPoint(contentOffset, targetOffset)) bounce = NO;
     }
     if(update) [self.layer setNeedsDisplay];
 }
@@ -65,8 +97,9 @@
 	CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
 	CGContextFillRect(ctx, r);
 
-    CGFloat xscale = r.size.width / plotb.size.width;
-    CGFloat yscale = r.size.height / plotb.size.height;
+    CGFloat xscale = contentSize.width / plotb.size.width;
+    CGFloat yscale = contentSize.height / plotb.size.height;
+    CGContextTranslateCTM(ctx, contentOffset.x, contentOffset.y);
     CGContextScaleCTM(ctx, 1, -1);
     CGContextTranslateCTM(ctx, 0, -r.size.height);
     
@@ -112,6 +145,68 @@
     if(animated) {
         [plot startAnimation];
     } 
+}
+
+-(BOOL)canScrollVertical
+{
+    return scrollEnabled && contentSize.height > self.frame.size.height;
+}
+
+-(BOOL)canScrollHorizontal
+{
+    return scrollEnabled && contentSize.width > self.frame.size.width;
+}
+
+-(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *t = [touches anyObject];
+    panStart = [t locationInView:self];
+}
+
+-(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self calcBounce];
+}
+
+-(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [self calcBounce];
+}
+
+-(void)calcBounce
+{
+    targetOffset = contentOffset;
+    if(targetOffset.x < self.frame.size.width - contentSize.width) {
+        targetOffset.x = self.frame.size.width - contentSize.width;
+        bounce = YES;
+    }
+    if(targetOffset.y < 0) {
+        targetOffset.y = 0;
+        bounce = YES;
+    }
+    if(targetOffset.x > 0) {
+        targetOffset.x = 0;
+        bounce = YES;
+    }
+    if(targetOffset.y > contentSize.height - self.frame.size.height) {
+        targetOffset.y = contentSize.height - self.frame.size.height;
+        bounce = YES;
+    }
+}
+
+-(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    UITouch *t = [touches anyObject];
+    CGPoint p = [t locationInView:self];
+    if(self.canScrollHorizontal) {
+        contentOffset.x += p.x - panStart.x;
+        [self setNeedsDisplay];
+    }
+    if(self.canScrollVertical) {
+        contentOffset.y += p.y - panStart.y;
+        [self setNeedsDisplay];
+    }
+    panStart = p;
 }
 
 @end

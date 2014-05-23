@@ -103,7 +103,6 @@
 
 -(void)drawInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale
 {
-    NSLog(@"draw in context");
     CGContextSetFillColorWithColor(ctx, plotColor.CGColor);
     CGContextSetStrokeColorWithColor(ctx, plotColor.CGColor);
     switch(lineType) {

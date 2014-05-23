@@ -25,6 +25,13 @@
     plot.lineType = KPPlotLineTypeDashDot;
     plot.lineWidth = 2.f;
     [plotView addPlot:plot animated:YES];
+    plotView.contentSize = CGSizeMake(360, 150);
+}
+
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    [self.scroll setContentSize:CGSizeMake(320, 480)];
 }
 
 - (void)didReceiveMemoryWarning
@@ -43,6 +50,22 @@
 -(CGFloat)plot:(KPPlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return sinf(0.5f * point) * 10.f;
+}
+
+-(KPLabel*)labelForPlot:(KPPlot *)plot point:(NSInteger)point
+{
+    KPLabel *l = [KPLabel new];
+    CGFloat val = [self plot:plot value:KPPlotPointY forPoint:point];
+    l.text = [NSString stringWithFormat:@"%.2f", val];
+    l.textFont = [UIFont systemFontOfSize:8.f];
+    if(val < 0)
+        l.textColor = [UIColor redColor];
+    else
+        l.textColor = [UIColor greenColor];
+    l.backgroundColor = [UIColor lightGrayColor];
+    l.offset = CGPointMake(0, 3);
+    l.alignment = NSTextAlignmentLeft;
+    return l;
 }
 
 @end

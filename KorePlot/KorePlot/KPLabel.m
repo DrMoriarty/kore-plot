@@ -41,15 +41,20 @@
 
 -(void)drawLabelInContext:(CGContextRef)ctx toRect:(CGRect)rect
 {
-    if(backgroundColor) {
-        CGContextSetFillColorWithColor(ctx, backgroundColor.CGColor);
-        CGContextFillRect(ctx, rect);
-    }
     CGContextSaveGState(ctx);
     CGContextTranslateCTM(ctx, rect.origin.x, rect.origin.y);
     CGContextScaleCTM(ctx, 1, -1);
     UIGraphicsPushContext(ctx);
-    [text drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height) withAttributes:@{UITextAttributeFont: textFont, UITextAttributeTextColor: textColor}];
+    if(backgroundColor) {
+        CGContextSetFillColorWithColor(ctx, backgroundColor.CGColor);
+        CGContextFillRect(ctx, CGRectMake(0, 0, rect.size.width, rect.size.height));
+    }
+    if(NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_6_1) {
+        [text drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height) withAttributes:@{UITextAttributeFont: textFont, UITextAttributeTextColor: textColor}];
+    } else {
+        CGContextSetStrokeColorWithColor(ctx, textColor.CGColor);
+        [text drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height) withFont:textFont lineBreakMode:NSLineBreakByClipping alignment:alignment];
+    }
     UIGraphicsPopContext();
     CGContextRestoreGState(ctx);
 }
