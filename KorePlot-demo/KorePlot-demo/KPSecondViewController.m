@@ -42,12 +42,12 @@
 
 #pragma mark - KPPlotDelegate
 
--(NSInteger)numberOfPointsForPlot:(KPLinePlot *)plot
+-(NSInteger)numberOfPointsForPlot:(id<KPPlot>)plot
 {
     return 20;
 }
 
--(CGFloat)plot:(KPLinePlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
+-(CGFloat)plot:(id<KPPlot>)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return cosf(0.3f * point) * 5.f;
 }

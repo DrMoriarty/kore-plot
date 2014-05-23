@@ -13,6 +13,10 @@ typedef enum {KPPlotPointX = 0, KPPlotPointY, KPPlotPointMin, KPPlotPointMax} KP
 
 @protocol KPPlot;
 
+/*
+ *   KPPlotDelegate
+ */
+
 @protocol KPPlotDelegate <NSObject>
 
 -(NSInteger)numberOfPointsForPlot:(id<KPPlot>)plot;
@@ -22,6 +26,10 @@ typedef enum {KPPlotPointX = 0, KPPlotPointY, KPPlotPointMin, KPPlotPointMax} KP
 -(KPLabel*)labelForPlot:(id<KPPlot>)plot point:(NSInteger)point;
 
 @end
+
+/*
+ *   KPPlot
+ */
 
 @protocol KPPlot <NSObject>
 

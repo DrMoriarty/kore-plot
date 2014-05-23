@@ -42,17 +42,17 @@
 
 #pragma mark - KPPlotDelegate
 
--(NSInteger)numberOfPointsForPlot:(KPLinePlot *)plot
+-(NSInteger)numberOfPointsForPlot:(id<KPPlot>)plot
 {
     return 10;
 }
 
--(CGFloat)plot:(KPLinePlot *)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
+-(CGFloat)plot:(id<KPPlot>)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return sinf(0.5f * point) * 10.f;
 }
 
--(KPLabel*)labelForPlot:(KPLinePlot *)plot point:(NSInteger)point
+-(KPLabel*)labelForPlot:(id<KPPlot>)plot point:(NSInteger)point
 {
     KPLabel *l = [KPLabel new];
     CGFloat val = [self plot:plot value:KPPlotPointY forPoint:point];

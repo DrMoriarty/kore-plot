@@ -20,6 +20,7 @@
 		9827F9E1192E170700508CD8 /* KPLinePlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9E0192E170700508CD8 /* KPLinePlot.m */; };
 		9827F9E5192E172100508CD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9E4192E172100508CD8 /* QuartzCore.framework */; };
 		9827F9E8192F46A800508CD8 /* KPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9E7192F46A800508CD8 /* KPLabel.m */; };
+		9827F9EC192F91B400508CD8 /* KPBarPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9EB192F91B400508CD8 /* KPBarPlot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,8 @@
 		9827F9E6192F46A800508CD8 /* KPLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPLabel.h; sourceTree = "<group>"; };
 		9827F9E7192F46A800508CD8 /* KPLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPLabel.m; sourceTree = "<group>"; };
 		9827F9E9192F8CC900508CD8 /* KPPlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KPPlot.h; sourceTree = "<group>"; };
+		9827F9EA192F91B400508CD8 /* KPBarPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KPBarPlot.h; sourceTree = "<group>"; };
+		9827F9EB192F91B400508CD8 /* KPBarPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KPBarPlot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +135,8 @@
 				9827F9E9192F8CC900508CD8 /* KPPlot.h */,
 				9827F9DF192E170700508CD8 /* KPLinePlot.h */,
 				9827F9E0192E170700508CD8 /* KPLinePlot.m */,
+				9827F9EA192F91B400508CD8 /* KPBarPlot.h */,
+				9827F9EB192F91B400508CD8 /* KPBarPlot.m */,
 				9827F9E6192F46A800508CD8 /* KPLabel.h */,
 				9827F9E7192F46A800508CD8 /* KPLabel.m */,
 				9827F968192E126600508CD8 /* Supporting Files */,
@@ -247,6 +252,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9827F9E8192F46A800508CD8 /* KPLabel.m in Sources */,
+				9827F9EC192F91B400508CD8 /* KPBarPlot.m in Sources */,
 				9827F9DE192E148400508CD8 /* KPPlotView.m in Sources */,
 				9827F9E1192E170700508CD8 /* KPLinePlot.m in Sources */,
 			);
