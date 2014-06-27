@@ -15,11 +15,12 @@
 @property (nonatomic, readonly) CGRect plotBounds;
 @property (nonatomic, assign) CGSize contentSize;
 @property (nonatomic, assign) CGPoint contentOffset;
-@property (nonatomic, assign) BOOL scrollEnabled;
+@property (nonatomic, assign) BOOL scrollEnabled, centerPlot;
 @property (nonatomic, retain) KPXAxis *xAxis;
 
 -(void)addPlot:(id<KPPlot>)plot animated:(BOOL)animated;
 -(void)removePlot:(id<KPPlot>)plot;
 -(void)removeAllPlots;
+-(void)redraw;
 
 @end

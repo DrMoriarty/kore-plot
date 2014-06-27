@@ -20,7 +20,7 @@
     BOOL bounce, forceUpdate;
 }
 
-@synthesize contentSize, contentOffset, scrollEnabled, xAxis;
+@synthesize contentSize, contentOffset, scrollEnabled, xAxis, centerPlot;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -50,6 +50,7 @@
     timer = [NSTimer timerWithTimeInterval:DT target:self selector:@selector(updateAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
     forceUpdate = YES;
+    centerPlot = NO;
 }
 
 -(void)updateAnimation
@@ -95,6 +96,9 @@
 
 -(void)drawLayer:(CALayer *)layer inContext:(CGContextRef)ctx
 {
+    if(centerPlot && contentSize.width < self.frame.size.width) {
+        contentOffset = CGPointMake((self.frame.size.width - contentSize.width) * 0.5f, 0.f);
+    }
     CGContextSaveGState(ctx);
     CGRect r = CGContextGetClipBoundingBox(ctx);
 	CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
@@ -248,6 +252,17 @@
         [self setNeedsDisplay];
     }
     panStart = p;
+}
+
+-(void)redraw
+{
+    [self.layer setNeedsDisplay];
+}
+
+-(void)setFrame:(CGRect)frame
+{
+    [super setFrame:frame];
+    [self redraw];
 }
 
 @end
