@@ -28,7 +28,8 @@
 
 -(void)drawLabelInContext:(CGContextRef)ctx toPoint:(CGPoint)point
 {
-    CGSize size = [text sizeWithFont:textFont];
+    if(!text) return;
+    CGSize size = [text sizeWithFont:textFont constrainedToSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) lineBreakMode:NSLineBreakByWordWrapping];
     CGRect rect = CGRectMake(point.x+offset.x, point.y+offset.y+size.height, size.width, size.height);
     if(alignment == NSTextAlignmentLeft) {
         // nothing to do
@@ -42,6 +43,7 @@
 
 -(void)drawLabelInContext:(CGContextRef)ctx toRect:(CGRect)rect
 {
+    if(!text) return;
     CGContextSaveGState(ctx);
     CGContextTranslateCTM(ctx, rect.origin.x, rect.origin.y);
     CGContextScaleCTM(ctx, 1, -1);

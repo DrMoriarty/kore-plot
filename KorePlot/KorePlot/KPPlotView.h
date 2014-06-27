@@ -19,5 +19,7 @@
 @property (nonatomic, retain) KPXAxis *xAxis;
 
 -(void)addPlot:(id<KPPlot>)plot animated:(BOOL)animated;
+-(void)removePlot:(id<KPPlot>)plot;
+-(void)removeAllPlots;
 
 @end

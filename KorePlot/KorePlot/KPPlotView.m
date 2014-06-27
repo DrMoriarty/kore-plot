@@ -17,7 +17,7 @@
     CGFloat paddingLeft, paddingRight, paddingTop, paddingBottom;
     CGPoint panStart, panMove;
     CGPoint targetOffset;
-    BOOL bounce;
+    BOOL bounce, forceUpdate;
 }
 
 @synthesize contentSize, contentOffset, scrollEnabled, xAxis;
@@ -49,6 +49,7 @@
     scrollEnabled = YES;
     timer = [NSTimer timerWithTimeInterval:DT target:self selector:@selector(updateAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
+    forceUpdate = YES;
 }
 
 -(void)updateAnimation
@@ -83,7 +84,8 @@
         update = YES;
         if(CGPointEqualToPoint(contentOffset, targetOffset)) bounce = NO;
     }
-    if(update) [self.layer setNeedsDisplay];
+    if(update || forceUpdate) [self.layer setNeedsDisplay];
+    forceUpdate = NO;
 }
 
 -(void)drawRect:(CGRect)rect
@@ -158,6 +160,27 @@
     } 
 }
 
+-(void)removePlot:(id<KPPlot>)plot
+{
+    NSArray *pls = [plots filteredArrayUsingPredicate:[NSPredicate predicateWithBlock:^BOOL(id evaluatedObject, NSDictionary *bindings) {
+        return ![evaluatedObject isEqual:plot];
+    }]];
+    [self removeAllPlots];
+    for (id<KPPlot> p in pls) {
+        [self addPlot:p animated:NO];
+    }
+}
+
+-(void)removeAllPlots
+{
+    plotb = CGRectNull;
+    [plots removeAllObjects];
+    contentSize = self.frame.size;
+    contentOffset = CGPointZero;
+    paddingBottom = paddingLeft = paddingRight = paddingTop = 0.f;
+    forceUpdate = YES;
+}
+
 -(BOOL)canScrollVertical
 {
     return scrollEnabled && contentSize.height > self.frame.size.height;
@@ -170,18 +193,24 @@
 
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    UITouch *t = [touches anyObject];
-    panStart = [t locationInView:self];
+    if(scrollEnabled) {
+        UITouch *t = [touches anyObject];
+        panStart = [t locationInView:self];
+    }
 }
 
 -(void)touchesCancelled:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self calcBounce];
+    if(scrollEnabled) {
+        [self calcBounce];
+    }
 }
 
 -(void)touchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
 {
-    [self calcBounce];
+    if(scrollEnabled) {
+        [self calcBounce];
+    }
 }
 
 -(void)calcBounce
@@ -207,6 +236,7 @@
 
 -(void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
 {
+    if(!scrollEnabled) return;
     UITouch *t = [touches anyObject];
     CGPoint p = [t locationInView:self];
     if(self.canScrollHorizontal) {

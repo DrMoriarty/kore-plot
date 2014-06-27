@@ -43,6 +43,7 @@
     barWidth = 10.f;
     plotColor = [UIColor blackColor];
     showLabels = YES;
+    animationProgress = 1.f;
 }
 
 -(void)startAnimation
@@ -64,8 +65,8 @@
     if(plotDelegate) {
         NSInteger num = [plotDelegate numberOfPointsForPlot:self];
         if(num <= 0) return;
-        plotb.size.width = num;// + 2.f*padding;
-        plotb.origin.x = 0.f;//- padding;
+        plotb.size.width = num;
+        plotb.origin.x = -.5f;
         data = [NSMutableArray arrayWithCapacity:num];
         labels = [NSMutableArray arrayWithCapacity:num];
         CGFloat Min = MAXFLOAT, Max = -MAXFLOAT;
@@ -85,8 +86,8 @@
                 labels[i] = @[l1, l2];
             }
         }
-        plotb.origin.y = Min;// - padding;
-        plotb.size.height = Max-Min;// + 2.f*padding;
+        plotb.origin.y = Min;
+        plotb.size.height = Max-Min;
         /*
         for(int i=0; i < labels.count; i++) {
             KPLabel *l1 = [labels[i] objectAtIndex:0];
@@ -102,7 +103,8 @@
 
 -(BOOL)update:(CGFloat)dt
 {
-    if(animationProgress <= 1.f) {
+    if(animationProgress > 1.f) animationProgress = 1.f;
+    if(animationProgress < 1.f) {
         animationProgress += 0.1f;
         return YES;
     } else {
