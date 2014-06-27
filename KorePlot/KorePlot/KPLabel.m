@@ -10,7 +10,7 @@
 
 @implementation KPLabel
 
-@synthesize textColor, backgroundColor, text, textFont, alignment, offset;
+@synthesize textColor, backgroundColor, text, textFont, alignment, offset, angle;
 
 -(id)init
 {
@@ -21,6 +21,7 @@
         textFont = [UIFont systemFontOfSize:UIFont.systemFontSize];
         alignment = NSTextAlignmentCenter;
         offset = CGPointZero;
+        angle = 0.f;
     }
     return self;
 }
@@ -44,6 +45,7 @@
     CGContextSaveGState(ctx);
     CGContextTranslateCTM(ctx, rect.origin.x, rect.origin.y);
     CGContextScaleCTM(ctx, 1, -1);
+    if(angle != 0.f) CGContextRotateCTM(ctx, angle);
     UIGraphicsPushContext(ctx);
     if(backgroundColor) {
         CGContextSetFillColorWithColor(ctx, backgroundColor.CGColor);
@@ -57,6 +59,12 @@
     }
     UIGraphicsPopContext();
     CGContextRestoreGState(ctx);
+}
+
+-(CGRect)rectForPoint:(CGPoint)point
+{
+    CGSize size = [text sizeWithFont:textFont];
+    return CGRectMake(point.x+offset.x, point.y+offset.y+size.height, size.width, size.height);
 }
 
 @end

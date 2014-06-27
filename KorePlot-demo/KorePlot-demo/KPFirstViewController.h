@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "KorePlot.h"
 
-@interface KPFirstViewController : UIViewController <KPPlotDelegate>
+@interface KPFirstViewController : UIViewController <KPPlotDelegate, KPAxisDelegate>
 
 @property (nonatomic, strong) IBOutlet KPPlotView *plotView;
 @property (nonatomic, strong) IBOutlet UIScrollView *scroll;

@@ -30,6 +30,9 @@
     [plotView addPlot:bar animated:YES];
     [plotView addPlot:plot animated:YES];
     plotView.contentSize = CGSizeMake(360, 150);
+    
+    KPXAxis *axis = [[KPXAxis alloc] initWithIdentifier:@"x" andDelegate:self];
+    plotView.xAxis = axis;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -48,7 +51,8 @@
 
 -(NSInteger)numberOfPointsForPlot:(id<KPPlot>)plot
 {
-    return 10;
+    if([plot.identifier isEqualToString:@"one"]) return 10;
+    else return 5;
 }
 
 -(CGFloat)plot:(id<KPPlot>)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
@@ -96,6 +100,42 @@
         l.offset = CGPointMake(-5, 3);
         l.alignment = NSTextAlignmentRight;
         return l;
+    }
+    return l;
+}
+
+#pragma mark - KPAxisDelegate
+
+-(CGFloat)axisMinumumFor:(KPXAxis*)axis
+{
+    return -.5f;
+}
+
+-(CGFloat)axisMaximumFor:(KPXAxis*)axis
+{
+    return 10.5f;
+}
+
+-(KPLabel*)labelForAxis:(KPXAxis*)axis point:(NSInteger)point
+{
+    KPLabel *l = [KPLabel new];
+    l.angle = 1.f;
+    l.alignment = NSTextAlignmentLeft;
+    l.offset = CGPointMake(0, -2);
+    l.textFont = [UIFont systemFontOfSize:8.f];
+    switch (point) {
+        case 0:
+            l.text = @"first";
+            break;
+        case 1:
+            l.text = @"second";
+            break;
+        case 2:
+            l.text = @"third";
+            break;
+        default:
+            l.text = [NSString stringWithFormat:@"%dth", point+1];
+            break;
     }
     return l;
 }

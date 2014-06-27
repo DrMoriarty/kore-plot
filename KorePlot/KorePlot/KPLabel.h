@@ -17,7 +17,9 @@
 @property (nonatomic, strong) UIFont *textFont;
 @property (nonatomic, assign) NSTextAlignment alignment;
 @property (nonatomic, assign) CGPoint offset;
+@property (nonatomic, assign) CGFloat angle;
 
 -(void)drawLabelInContext:(CGContextRef)ctx toPoint:(CGPoint)point;
+-(CGRect)rectForPoint:(CGPoint)point;
 
 @end

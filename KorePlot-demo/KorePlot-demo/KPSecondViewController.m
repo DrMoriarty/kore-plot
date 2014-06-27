@@ -26,6 +26,9 @@
     plot.plotColor = [UIColor brownColor];
     [plotView addPlot:plot animated:YES];
     plotView.contentSize = CGSizeMake(280, 200);
+    
+    KPXAxis *axis = [[KPXAxis alloc] initWithIdentifier:@"x" andDelegate:self];
+    plotView.xAxis = axis;
 }
 
 -(void)viewDidAppear:(BOOL)animated
@@ -50,6 +53,43 @@
 -(CGFloat)plot:(id<KPPlot>)plot value:(KPPlotPoint)value forPoint:(NSInteger)point
 {
     return cosf(0.3f * point) * 5.f;
+}
+
+#pragma mark - KPAxisDelegate
+
+-(CGFloat)axisMinumumFor:(KPXAxis*)axis
+{
+    return -.5f;
+}
+
+-(CGFloat)axisMaximumFor:(KPXAxis*)axis
+{
+    return 20.5f;
+}
+
+-(KPLabel*)labelForAxis:(KPXAxis*)axis point:(NSInteger)point
+{
+    KPLabel *l = [KPLabel new];
+    l.angle = -1.f;
+    l.alignment = NSTextAlignmentRight;
+    l.offset = CGPointMake(0, -2);
+    l.textFont = [UIFont systemFontOfSize:8.f];
+    if(point%4) return l;
+    switch (point) {
+        case 0:
+            l.text = @"first";
+            break;
+        case 1:
+            l.text = @"second";
+            break;
+        case 2:
+            l.text = @"third";
+            break;
+        default:
+            l.text = [NSString stringWithFormat:@"%dth", point+1];
+            break;
+    }
+    return l;
 }
 
 @end

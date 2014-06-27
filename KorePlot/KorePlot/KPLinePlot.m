@@ -40,7 +40,7 @@
 
 -(void)internalInit
 {
-    padding = 0.5f;
+    padding = 10.0f;
     lineWidth = 1.f;
     plotColor = [UIColor blackColor];
     dotType = KPPlotDotTypeNone;
@@ -85,8 +85,8 @@
     if(plotDelegate) {
         NSInteger num = [plotDelegate numberOfPointsForPlot:self];
         if(num <= 0) return;
-        plotb.size.width = num + 2.f*padding;
-        plotb.origin.x = - padding;
+        plotb.size.width = num;// + 2.f*padding;
+        plotb.origin.x = 0.f;//- padding;
         data = [NSMutableArray arrayWithCapacity:num];
         labels = [NSMutableArray arrayWithCapacity:num];
         CGFloat min = MAXFLOAT, max = -MAXFLOAT;
@@ -103,8 +103,8 @@
                 labels[i] = l;
             }
         }
-        plotb.origin.y = min - padding;
-        plotb.size.height = max-min + 2.f*padding;
+        plotb.origin.y = min;// - padding;
+        plotb.size.height = max-min;// + 2.f*padding;
     }
 }
 

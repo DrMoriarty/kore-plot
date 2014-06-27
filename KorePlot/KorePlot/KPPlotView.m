@@ -14,12 +14,13 @@
     NSMutableArray *plots;
     NSTimer *timer;
     CGRect plotb;
+    CGFloat paddingLeft, paddingRight, paddingTop, paddingBottom;
     CGPoint panStart, panMove;
     CGPoint targetOffset;
     BOOL bounce;
 }
 
-@synthesize contentSize, contentOffset, scrollEnabled;
+@synthesize contentSize, contentOffset, scrollEnabled, xAxis;
 
 - (id)initWithFrame:(CGRect)frame
 {
@@ -44,6 +45,7 @@
     plots = [NSMutableArray array];
     contentSize = self.frame.size;
     contentOffset = CGPointZero;
+    paddingBottom = paddingLeft = paddingRight = paddingTop = 0.f;
     scrollEnabled = YES;
     timer = [NSTimer timerWithTimeInterval:DT target:self selector:@selector(updateAnimation) userInfo:nil repeats:YES];
     [[NSRunLoop mainRunLoop] addTimer:timer forMode:NSRunLoopCommonModes];
@@ -95,10 +97,13 @@
     CGRect r = CGContextGetClipBoundingBox(ctx);
 	CGContextSetFillColorWithColor(ctx, [self.backgroundColor CGColor]);
 	CGContextFillRect(ctx, r);
+    
+    CGSize plotSize = CGSizeMake(contentSize.width-paddingLeft-paddingRight, contentSize.height-paddingBottom-paddingTop);
+    if(xAxis) plotSize.height -= xAxis.size;
 
-    CGFloat xscale = contentSize.width / plotb.size.width;
-    CGFloat yscale = contentSize.height / plotb.size.height;
-    CGContextTranslateCTM(ctx, contentOffset.x, contentOffset.y);
+    CGFloat xscale = plotSize.width / plotb.size.width;
+    CGFloat yscale = plotSize.height / plotb.size.height;
+    CGContextTranslateCTM(ctx, contentOffset.x+paddingLeft, contentOffset.y+(plotSize.height-contentSize.height)+paddingBottom);
     CGContextScaleCTM(ctx, 1, -1);
     CGContextTranslateCTM(ctx, 0, -r.size.height);
     
@@ -123,6 +128,14 @@
         }
     }
     
+    if(xAxis) {
+        CGContextSaveGState(ctx);
+        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, -xAxis.size-paddingBottom);
+        [xAxis drawInContext:ctx withXScale:xscale andYScale:yscale];
+        [xAxis drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
+        CGContextRestoreGState(ctx);
+    }
+    
     CGContextRestoreGState(ctx);
 }
 
@@ -131,8 +144,13 @@
 {
     if(CGRectEqualToRect(plotb, CGRectNull)) {
         plotb = plot.plotBounds;
+        paddingTop = paddingRight = paddingLeft = paddingBottom = plot.padding;
     } else {
         plotb = CGRectUnion(plotb, plot.plotBounds);
+        if(plot.plotBounds.origin.x <= plotb.origin.x && plot.padding > paddingLeft) paddingLeft = plot.padding;
+        if(plot.plotBounds.origin.y <= plotb.origin.y && plot.padding > paddingBottom) paddingBottom = plot.padding;
+        if(plot.plotBounds.origin.x+plot.plotBounds.size.width >= plotb.origin.x+plotb.size.width && plot.padding > paddingRight) paddingRight = plot.padding;
+        if(plot.plotBounds.origin.y+plot.plotBounds.size.height >= plotb.origin.y+plotb.size.height && plot.padding > paddingTop) paddingTop = plot.padding;
     }
     [plots addObject:plot];
     if(animated && [plot respondsToSelector:@selector(startAnimation)]) {
