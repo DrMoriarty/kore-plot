@@ -18,20 +18,13 @@ typedef enum {KPPlotLineTypeSolid = 0, KPPlotLineTypeDot, KPPlotLineTypeDash, KP
 
 @interface KPLinePlot : NSObject <KPPlot>
 
-@property (nonatomic, weak) id<KPPlotDelegate> plotDelegate;
-@property (nonatomic, strong) NSString *identifier;
-@property (nonatomic, readonly) CGRect plotBounds;
-@property (nonatomic, assign) CGFloat padding;
-@property (nonatomic, strong) UIColor *plotColor;
 @property (nonatomic, assign) CGFloat lineWidth;
 @property (nonatomic, assign) KPPlotDotType dotType;
 @property (nonatomic, assign) KPPlotLineType lineType;
-@property (nonatomic, assign) BOOL showLabels;
 
 -(id)initWithIdentifier:(NSString*)identifier andDelegate:(id<KPPlotDelegate>)delegate;
 -(void)startAnimation;
 -(BOOL)update:(CGFloat)dt;
--(void)reloadData;
 -(void)drawInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale;
 -(void)drawLabelsInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale;
 

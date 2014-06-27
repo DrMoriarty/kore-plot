@@ -53,7 +53,9 @@
 {
     BOOL update = NO;
     for (id<KPPlot> kp in plots) {
-        if([kp update:DT]) update = YES;
+        if([kp respondsToSelector:@selector(update:)]) {
+            if([kp update:DT]) update = YES;
+        }
     }
     if(bounce) {
         CGFloat dx = fabsf(contentOffset.x-targetOffset.x) * 10.f;
@@ -113,10 +115,12 @@
     }
     
     for (id<KPPlot> p in plots) {
-        CGContextSaveGState(ctx);
-        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
-        [p drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
-        CGContextRestoreGState(ctx);
+        if(p.showLabels) {
+            CGContextSaveGState(ctx);
+            CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+            [p drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
+            CGContextRestoreGState(ctx);
+        }
     }
     
     CGContextRestoreGState(ctx);

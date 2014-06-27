@@ -23,7 +23,7 @@ typedef enum {KPPlotPointX = 0, KPPlotPointY, KPPlotPointMin, KPPlotPointMax} KP
 -(CGFloat)plot:(id<KPPlot>)plot value:(KPPlotPoint)value forPoint:(NSInteger)point;
 
 @optional
--(KPLabel*)labelForPlot:(id<KPPlot>)plot point:(NSInteger)point;
+-(KPLabel*)labelForPlot:(id<KPPlot>)plot value:(KPPlotPoint)value point:(NSInteger)point;
 
 @end
 
@@ -33,13 +33,19 @@ typedef enum {KPPlotPointX = 0, KPPlotPointY, KPPlotPointMin, KPPlotPointMax} KP
 
 @protocol KPPlot <NSObject>
 
+@property (nonatomic, assign) CGFloat padding;
+@property (nonatomic, weak) id<KPPlotDelegate> plotDelegate;
+@property (nonatomic, strong) NSString *identifier;
 @property (nonatomic, readonly) CGRect plotBounds;
+@property (nonatomic, assign) BOOL showLabels;
+@property (nonatomic, strong) UIColor *plotColor;
 
--(BOOL)update:(CGFloat)dt;
 -(void)drawInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale;
 -(void)drawLabelsInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale;
 
 @optional
+-(BOOL)update:(CGFloat)dt;
 -(void)startAnimation;
+-(void)reloadData;
 
 @end

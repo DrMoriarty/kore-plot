@@ -406,10 +406,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KorePlot-demo/KorePlot-demo-Prefix.pch";
 				INFOPLIST_FILE = "KorePlot-demo/KorePlot-demo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/makarov/projects/Libraries/kore-plot/KorePlot/build/Debug-iphoneos",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -423,10 +419,6 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KorePlot-demo/KorePlot-demo-Prefix.pch";
 				INFOPLIST_FILE = "KorePlot-demo/KorePlot-demo-Info.plist";
-				LIBRARY_SEARCH_PATHS = (
-					"$(inherited)",
-					"/Users/makarov/projects/Libraries/kore-plot/KorePlot/build/Debug-iphoneos",
-				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

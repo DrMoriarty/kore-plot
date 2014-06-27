@@ -8,3 +8,4 @@
 
 #import "KPPlotView.h"
 #import "KPLinePlot.h"
+#import "KPBarPlot.h"

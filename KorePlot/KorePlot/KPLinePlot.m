@@ -48,6 +48,12 @@
     showLabels = YES;
 }
 
+-(void)setPlotDelegate:(id<KPPlotDelegate>)_plotDelegate
+{
+    self.plotDelegate = _plotDelegate;
+    [self reloadData];
+}
+
 -(CGRect)plotBounds
 {
     return plotb;
@@ -74,6 +80,8 @@
 {
     data = nil;
     plotb = CGRectNull;
+    needRedraw = YES;
+    BOOL haveLabels = [plotDelegate respondsToSelector:@selector(labelForPlot:value:point:)];
     if(plotDelegate) {
         NSInteger num = [plotDelegate numberOfPointsForPlot:self];
         if(num <= 0) return;
@@ -87,8 +95,8 @@
             if(d < min) min = d;
             if(d > max) max = d;
             data[i] = [NSNumber numberWithFloat:d];
-            if([plotDelegate respondsToSelector:@selector(labelForPlot:point:)]) {
-                labels[i] = [plotDelegate labelForPlot:self point:i];
+            if(haveLabels) {
+                labels[i] = [plotDelegate labelForPlot:self value:KPPlotPointY point:i];
             } else {
                 KPLabel *l = [KPLabel new];
                 l.text = [NSString stringWithFormat:@"%f", d];
@@ -98,7 +106,6 @@
         plotb.origin.y = min - padding;
         plotb.size.height = max-min + 2.f*padding;
     }
-    needRedraw = YES;
 }
 
 -(void)drawInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale
@@ -148,7 +155,6 @@
 
 -(void)drawLabelsInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale
 {
-    if(!showLabels) return;
     for(int i=0; i<labels.count; i++) {
         KPLabel *l = labels[i];
         NSNumber *n = data[i];

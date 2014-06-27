@@ -11,4 +11,8 @@
 
 @interface KPBarPlot : NSObject <KPPlot>
 
+@property (nonatomic, assign) CGFloat barWidth;
+
+-(id)initWithIdentifier:(NSString*)identifier andDelegate:(id<KPPlotDelegate>)delegate;
+
 @end
