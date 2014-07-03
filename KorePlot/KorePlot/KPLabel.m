@@ -57,6 +57,7 @@
         [text drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height) withAttributes:@{UITextAttributeFont: textFont, UITextAttributeTextColor: textColor}];
     } else {
         CGContextSetStrokeColorWithColor(ctx, textColor.CGColor);
+        CGContextSetFillColorWithColor(ctx, textColor.CGColor);
         [text drawInRect:CGRectMake(0, 0, rect.size.width, rect.size.height) withFont:textFont lineBreakMode:NSLineBreakByClipping alignment:alignment];
     }
     UIGraphicsPopContext();
