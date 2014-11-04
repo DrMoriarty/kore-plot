@@ -7,12 +7,27 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5115E5171A08864600F330B4 /* KPPlotView.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9DD192E148400508CD8 /* KPPlotView.m */; };
+		5115E5181A08864B00F330B4 /* KPXAxis.m in Sources */ = {isa = PBXBuildFile; fileRef = 985BBFE4195D5772008D8C39 /* KPXAxis.m */; };
+		5115E5191A08865000F330B4 /* KPLinePlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9E0192E170700508CD8 /* KPLinePlot.m */; };
+		5115E51A1A08865600F330B4 /* KPBarPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9EB192F91B400508CD8 /* KPBarPlot.m */; };
+		5115E51B1A08865C00F330B4 /* KPLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9E7192F46A800508CD8 /* KPLabel.m */; };
+		5115E51C1A08866A00F330B4 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9E4192E172100508CD8 /* QuartzCore.framework */; };
+		5115E51D1A08866F00F330B4 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9DA192E142F00508CD8 /* CoreGraphics.framework */; };
+		5115E51E1A08867400F330B4 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
+		5115E51F1A08868000F330B4 /* KorePlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F96A192E126600508CD8 /* KorePlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5201A08868700F330B4 /* KPPlotView.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9DC192E148400508CD8 /* KPPlotView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5211A08868B00F330B4 /* KPPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9E9192F8CC900508CD8 /* KPPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5221A08869100F330B4 /* KPXAxis.h in Headers */ = {isa = PBXBuildFile; fileRef = 985BBFE3195D5772008D8C39 /* KPXAxis.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5231A08869A00F330B4 /* KPLinePlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9DF192E170700508CD8 /* KPLinePlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5241A0886A400F330B4 /* KPBarPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9EA192F91B400508CD8 /* KPBarPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E5251A0886A900F330B4 /* KPLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9E6192F46A800508CD8 /* KPLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9827F966192E126600508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
 		9827F96B192E126600508CD8 /* KorePlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F96A192E126600508CD8 /* KorePlot.h */; };
 		9827F974192E126600508CD8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F973192E126600508CD8 /* XCTest.framework */; };
 		9827F975192E126600508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
 		9827F977192E126600508CD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F976192E126600508CD8 /* UIKit.framework */; };
-		9827F97A192E126600508CD8 /* libKorePlot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F962192E126600508CD8 /* libKorePlot.a */; };
+		9827F97A192E126600508CD8 /* liblibKorePlot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F962192E126600508CD8 /* liblibKorePlot.a */; };
 		9827F980192E126600508CD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9827F97E192E126600508CD8 /* InfoPlist.strings */; };
 		9827F982192E126600508CD8 /* KorePlotTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F981192E126600508CD8 /* KorePlotTests.m */; };
 		9827F9DB192E142F00508CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9DA192E142F00508CD8 /* CoreGraphics.framework */; };
@@ -48,7 +63,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9827F962192E126600508CD8 /* libKorePlot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libKorePlot.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		5115E5011A0883FC00F330B4 /* KorePlot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = KorePlot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5115E5041A0883FC00F330B4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9827F962192E126600508CD8 /* liblibKorePlot.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = liblibKorePlot.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		9827F965192E126600508CD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9827F969192E126600508CD8 /* KorePlot-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "KorePlot-Prefix.pch"; sourceTree = "<group>"; };
 		9827F96A192E126600508CD8 /* KorePlot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = KorePlot.h; sourceTree = "<group>"; };
@@ -74,6 +91,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5115E4FD1A0883FC00F330B4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5115E51C1A08866A00F330B4 /* QuartzCore.framework in Frameworks */,
+				5115E51D1A08866F00F330B4 /* CoreGraphics.framework in Frameworks */,
+				5115E51E1A08867400F330B4 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9827F95F192E126600508CD8 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -91,7 +118,7 @@
 				9827F974192E126600508CD8 /* XCTest.framework in Frameworks */,
 				9827F977192E126600508CD8 /* UIKit.framework in Frameworks */,
 				9827F975192E126600508CD8 /* Foundation.framework in Frameworks */,
-				9827F97A192E126600508CD8 /* libKorePlot.a in Frameworks */,
+				9827F97A192E126600508CD8 /* liblibKorePlot.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -111,8 +138,9 @@
 		9827F963192E126600508CD8 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9827F962192E126600508CD8 /* libKorePlot.a */,
+				9827F962192E126600508CD8 /* liblibKorePlot.a */,
 				9827F972192E126600508CD8 /* KorePlotTests.xctest */,
+				5115E5011A0883FC00F330B4 /* KorePlot.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -153,6 +181,7 @@
 			isa = PBXGroup;
 			children = (
 				9827F969192E126600508CD8 /* KorePlot-Prefix.pch */,
+				5115E5041A0883FC00F330B4 /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -177,10 +206,45 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5115E4FE1A0883FC00F330B4 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5115E51F1A08868000F330B4 /* KorePlot.h in Headers */,
+				5115E5201A08868700F330B4 /* KPPlotView.h in Headers */,
+				5115E5221A08869100F330B4 /* KPXAxis.h in Headers */,
+				5115E5211A08868B00F330B4 /* KPPlot.h in Headers */,
+				5115E5231A08869A00F330B4 /* KPLinePlot.h in Headers */,
+				5115E5241A0886A400F330B4 /* KPBarPlot.h in Headers */,
+				5115E5251A0886A900F330B4 /* KPLabel.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
-		9827F961192E126600508CD8 /* KorePlot */ = {
+		5115E5001A0883FC00F330B4 /* KorePlot */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlot" */;
+			buildConfigurationList = 5115E5111A0883FC00F330B4 /* Build configuration list for PBXNativeTarget "KorePlot" */;
+			buildPhases = (
+				5115E4FC1A0883FC00F330B4 /* Sources */,
+				5115E4FD1A0883FC00F330B4 /* Frameworks */,
+				5115E4FE1A0883FC00F330B4 /* Headers */,
+				5115E4FF1A0883FC00F330B4 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = KorePlot;
+			productName = KorePlot;
+			productReference = 5115E5011A0883FC00F330B4 /* KorePlot.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		9827F961192E126600508CD8 /* libKorePlot */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "libKorePlot" */;
 			buildPhases = (
 				9827F95E192E126600508CD8 /* Sources */,
 				9827F95F192E126600508CD8 /* Frameworks */,
@@ -190,9 +254,9 @@
 			);
 			dependencies = (
 			);
-			name = KorePlot;
+			name = libKorePlot;
 			productName = KorePlot;
-			productReference = 9827F962192E126600508CD8 /* libKorePlot.a */;
+			productReference = 9827F962192E126600508CD8 /* liblibKorePlot.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 		9827F971192E126600508CD8 /* KorePlotTests */ = {
@@ -221,6 +285,11 @@
 			attributes = {
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = Trilan;
+				TargetAttributes = {
+					5115E5001A0883FC00F330B4 = {
+						CreatedOnToolsVersion = 6.0;
+					};
+				};
 			};
 			buildConfigurationList = 9827F95D192E126600508CD8 /* Build configuration list for PBXProject "KorePlot" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -234,13 +303,21 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9827F961192E126600508CD8 /* KorePlot */,
+				5115E5001A0883FC00F330B4 /* KorePlot */,
+				9827F961192E126600508CD8 /* libKorePlot */,
 				9827F971192E126600508CD8 /* KorePlotTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5115E4FF1A0883FC00F330B4 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9827F970192E126600508CD8 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -252,6 +329,18 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5115E4FC1A0883FC00F330B4 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5115E5171A08864600F330B4 /* KPPlotView.m in Sources */,
+				5115E5181A08864B00F330B4 /* KPXAxis.m in Sources */,
+				5115E5191A08865000F330B4 /* KPLinePlot.m in Sources */,
+				5115E51A1A08865600F330B4 /* KPBarPlot.m in Sources */,
+				5115E51B1A08865C00F330B4 /* KPLabel.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		9827F95E192E126600508CD8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -277,7 +366,7 @@
 /* Begin PBXTargetDependency section */
 		9827F979192E126600508CD8 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 9827F961192E126600508CD8 /* KorePlot */;
+			target = 9827F961192E126600508CD8 /* libKorePlot */;
 			targetProxy = 9827F978192E126600508CD8 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -294,6 +383,56 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5115E5121A0883FC00F330B4 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = KorePlot/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5115E5131A0883FC00F330B4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				INFOPLIST_FILE = KorePlot/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		9827F983192E126600508CD8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -425,6 +564,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5115E5111A0883FC00F330B4 /* Build configuration list for PBXNativeTarget "KorePlot" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5115E5121A0883FC00F330B4 /* Debug */,
+				5115E5131A0883FC00F330B4 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		9827F95D192E126600508CD8 /* Build configuration list for PBXProject "KorePlot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -434,7 +581,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "KorePlot" */ = {
+		9827F985192E126600508CD8 /* Build configuration list for PBXNativeTarget "libKorePlot" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9827F986192E126600508CD8 /* Debug */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5115E5271A08892000F330B4 /* liblibKorePlot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5115E5261A08892000F330B4 /* liblibKorePlot.a */; };
 		9827F998192E12D900508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F997192E12D900508CD8 /* Foundation.framework */; };
 		9827F99A192E12D900508CD8 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F999192E12D900508CD8 /* CoreGraphics.framework */; };
 		9827F99C192E12D900508CD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F99B192E12D900508CD8 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		9827F9BC192E12DA00508CD8 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F99B192E12D900508CD8 /* UIKit.framework */; };
 		9827F9C4192E12DA00508CD8 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9827F9C2192E12DA00508CD8 /* InfoPlist.strings */; };
 		9827F9C6192E12DA00508CD8 /* KorePlot_demoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9827F9C5192E12DA00508CD8 /* KorePlot_demoTests.m */; };
-		9827F9D9192E12FC00508CD8 /* libKorePlot.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9D8192E12FC00508CD8 /* libKorePlot.a */; };
 		9827F9E3192E171C00508CD8 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F9E2192E171C00508CD8 /* QuartzCore.framework */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +37,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		5115E5261A08892000F330B4 /* liblibKorePlot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = liblibKorePlot.a; path = "../KorePlot/build/Debug-iphoneos/liblibKorePlot.a"; sourceTree = "<group>"; };
 		9827F994192E12D900508CD8 /* KorePlot-demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "KorePlot-demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9827F997192E12D900508CD8 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		9827F999192E12D900508CD8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -58,7 +59,6 @@
 		9827F9C1192E12DA00508CD8 /* KorePlot-demoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "KorePlot-demoTests-Info.plist"; sourceTree = "<group>"; };
 		9827F9C3192E12DA00508CD8 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9827F9C5192E12DA00508CD8 /* KorePlot_demoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KorePlot_demoTests.m; sourceTree = "<group>"; };
-		9827F9D8192E12FC00508CD8 /* libKorePlot.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKorePlot.a; path = "../KorePlot/build/Debug-iphoneos/libKorePlot.a"; sourceTree = "<group>"; };
 		9827F9E2192E171C00508CD8 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -67,8 +67,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5115E5271A08892000F330B4 /* liblibKorePlot.a in Frameworks */,
 				9827F9E3192E171C00508CD8 /* QuartzCore.framework in Frameworks */,
-				9827F9D9192E12FC00508CD8 /* libKorePlot.a in Frameworks */,
 				9827F99A192E12D900508CD8 /* CoreGraphics.framework in Frameworks */,
 				9827F99C192E12D900508CD8 /* UIKit.framework in Frameworks */,
 				9827F998192E12D900508CD8 /* Foundation.framework in Frameworks */,
@@ -110,8 +110,8 @@
 		9827F996192E12D900508CD8 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5115E5261A08892000F330B4 /* liblibKorePlot.a */,
 				9827F9E2192E171C00508CD8 /* QuartzCore.framework */,
-				9827F9D8192E12FC00508CD8 /* libKorePlot.a */,
 				9827F997192E12D900508CD8 /* Foundation.framework */,
 				9827F999192E12D900508CD8 /* CoreGraphics.framework */,
 				9827F99B192E12D900508CD8 /* UIKit.framework */,
@@ -406,6 +406,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KorePlot-demo/KorePlot-demo-Prefix.pch";
 				INFOPLIST_FILE = "KorePlot-demo/KorePlot-demo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vasya/projects/Libraries/kore-plot/KorePlot/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -419,6 +423,10 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "KorePlot-demo/KorePlot-demo-Prefix.pch";
 				INFOPLIST_FILE = "KorePlot-demo/KorePlot-demo-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vasya/projects/Libraries/kore-plot/KorePlot/build/Debug-iphoneos",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

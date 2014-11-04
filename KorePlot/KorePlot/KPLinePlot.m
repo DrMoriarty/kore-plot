@@ -119,17 +119,17 @@
         case KPPlotLineTypeSolid:
             break;
         case KPPlotLineTypeDot: {
-            float dash[2]={1, 2};
+            CGFloat dash[2]={1, 2};
             CGContextSetLineDash(ctx, 2, dash, 2);
             break;
         }
         case KPPlotLineTypeDash: {
-            float dash[2]={6, 3};
+            CGFloat dash[2]={6, 3};
             CGContextSetLineDash(ctx, 2, dash, 2);
             break;
         }
         case KPPlotLineTypeDashDot: {
-            float dash[4]={6, 3, 1, 3};
+            CGFloat dash[4]={6, 3, 1, 3};
             CGContextSetLineDash(ctx, 2, dash, 4);
             break;
         }
