@@ -11,6 +11,8 @@
 
 @implementation KPLinePlot {
     CGFloat animationProgress;
+    CGFloat animationDelay;
+    CGFloat animationSpeed;
     NSMutableArray *data;
     NSMutableArray *labels;
     BOOL needRedraw;
@@ -47,6 +49,8 @@
     lineType = KPPlotLineTypeSolid;
     showLabels = YES;
     animationProgress = 1.f;
+    animationDelay = 0.f;
+    animationSpeed = 5.f;
 }
 
 -(void)setPlotDelegate:(id<KPPlotDelegate>)_plotDelegate
@@ -60,16 +64,20 @@
     return plotb;
 }
 
--(void)startAnimation
+-(void)startAnimationWithDelay:(CGFloat)delay
 {
     animationProgress = 0.f;
+    animationDelay = delay;
 }
 
 -(BOOL)update:(CGFloat)dt
 {
     if(animationProgress > 1.f) animationProgress = 1.f;
     if(animationProgress < 1.f) {
-        animationProgress += 0.1f;
+        if(animationDelay >= 0.f)
+            animationProgress += dt*animationSpeed;
+        else
+            animationDelay += dt*animationSpeed;
         return YES;
     } else {
         BOOL nr = needRedraw;

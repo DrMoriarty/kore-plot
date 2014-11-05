@@ -13,7 +13,7 @@
     NSMutableArray *labels;
 }
 
-@synthesize axisDelegate, identifier, size, axisColor;
+@synthesize axisDelegate, identifier, size, axisColor, drawGrid, gridStep;
 
 -(id)initWithIdentifier:(NSString*)_identifier andDelegate:(id<KPAxisDelegate>)delegate
 {
@@ -23,6 +23,8 @@
         labels = [NSMutableArray array];
         size = 30.f;
         axisColor = [UIColor blackColor];
+        drawGrid = NO;
+        gridStep = 5.f;
         [self reloadData];
     }
     return self;
@@ -38,12 +40,12 @@
 {
     CGContextSetFillColorWithColor(ctx, axisColor.CGColor);
     CGContextSetStrokeColorWithColor(ctx, axisColor.CGColor);
-    CGContextMoveToPoint(ctx, min*xscale, size);
-    CGContextAddLineToPoint(ctx, max*xscale, size);
+    CGContextMoveToPoint(ctx, min*xscale, 0.f);
+    CGContextAddLineToPoint(ctx, max*xscale, 0.f);
     CGContextStrokePath(ctx);
     for(int i=min; i<= max; i++) {
-        CGContextMoveToPoint(ctx, i*xscale, size);
-        CGContextAddLineToPoint(ctx, i*xscale, size-5);
+        CGContextMoveToPoint(ctx, i*xscale, 0.f);
+        CGContextAddLineToPoint(ctx, i*xscale, -5.f);
         CGContextStrokePath(ctx);
     }
 }
@@ -52,7 +54,23 @@
 {
     for(int i=min; i<= max; i++) {
         KPLabel *l = labels[i];
-        [l drawLabelInContext:ctx toPoint:CGPointMake(i*xscale, size*0.5f)];
+        [l drawLabelInContext:ctx toPoint:CGPointMake(i*xscale, -size*0.5f)];
+    }
+}
+
+-(void)drawGridInContext:(CGContextRef)ctx withXScale:(CGFloat)xscale andYScale:(CGFloat)yscale
+{
+    if(drawGrid) {
+        CGContextSetFillColorWithColor(ctx, axisColor.CGColor);
+        CGContextSetStrokeColorWithColor(ctx, axisColor.CGColor);
+        CGRect r = CGContextGetClipBoundingBox(ctx);
+        CGFloat st = gridStep * yscale;
+        CGFloat gmin = ((int)((r.origin.y+size) / st)) * st;
+        for(CGFloat y = gmin; y <= r.origin.y+r.size.height; y += st) {
+            CGContextMoveToPoint(ctx, min*xscale, y);
+            CGContextAddLineToPoint(ctx, max*xscale, y);
+            CGContextStrokePath(ctx);
+        }
     }
 }
 

@@ -10,6 +10,8 @@
 
 @implementation KPBarPlot {
     CGFloat animationProgress;
+    CGFloat animationDelay;
+    CGFloat animationSpeed;
     NSMutableArray *data;
     NSMutableArray *labels;
     BOOL needRedraw;
@@ -44,11 +46,14 @@
     plotColor = [UIColor blackColor];
     showLabels = YES;
     animationProgress = 1.f;
+    animationDelay = 0.f;
+    animationSpeed = 5.f;
 }
 
--(void)startAnimation
+-(void)startAnimationWithDelay:(CGFloat)delay
 {
     animationProgress = 0.f;
+    animationDelay = delay;
 }
 
 -(CGRect)plotBounds
@@ -105,7 +110,10 @@
 {
     if(animationProgress > 1.f) animationProgress = 1.f;
     if(animationProgress < 1.f) {
-        animationProgress += 0.1f;
+        if(animationDelay >= 0.f)
+            animationProgress += dt*animationSpeed;
+        else
+            animationDelay += dt*animationSpeed;
         return YES;
     } else {
         BOOL nr = needRedraw;

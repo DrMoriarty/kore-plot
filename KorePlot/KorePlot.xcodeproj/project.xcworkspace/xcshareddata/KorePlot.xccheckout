@@ -11,17 +11,17 @@
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>F9AE123BFEA12452FD2F971033C0F047EBE29589</key>
-		<string>ssh://github.com/DrMoriarty/kore-plot.git</string>
+		<string>github.com:DrMoriarty/kore-plot.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>KorePlot/KorePlot.xcodeproj/project.xcworkspace</string>
+	<string>KorePlot/KorePlot.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>F9AE123BFEA12452FD2F971033C0F047EBE29589</key>
 		<string>../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/DrMoriarty/kore-plot.git</string>
+	<string>github.com:DrMoriarty/kore-plot.git</string>
 	<key>IDESourceControlProjectVersion</key>
 	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
