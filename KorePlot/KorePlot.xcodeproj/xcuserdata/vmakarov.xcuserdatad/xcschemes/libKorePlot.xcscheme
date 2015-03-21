@@ -14,9 +14,9 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "5115E5001A0883FC00F330B4"
-               BuildableName = "KorePlot.framework"
-               BlueprintName = "KorePlot"
+               BlueprintIdentifier = "9827F961192E126600508CD8"
+               BuildableName = "liblibKorePlot.a"
+               BlueprintName = "libKorePlot"
                ReferencedContainer = "container:KorePlot.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -35,16 +35,16 @@
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
+      buildConfiguration = "Release"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       allowLocationSimulation = "YES">
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5115E5001A0883FC00F330B4"
-            BuildableName = "KorePlot.framework"
-            BlueprintName = "KorePlot"
+            BlueprintIdentifier = "9827F961192E126600508CD8"
+            BuildableName = "liblibKorePlot.a"
+            BlueprintName = "libKorePlot"
             ReferencedContainer = "container:KorePlot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -60,9 +60,9 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "5115E5001A0883FC00F330B4"
-            BuildableName = "KorePlot.framework"
-            BlueprintName = "KorePlot"
+            BlueprintIdentifier = "9827F961192E126600508CD8"
+            BuildableName = "liblibKorePlot.a"
+            BlueprintName = "libKorePlot"
             ReferencedContainer = "container:KorePlot.xcodeproj">
          </BuildableReference>
       </MacroExpansion>

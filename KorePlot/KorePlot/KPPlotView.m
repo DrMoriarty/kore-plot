@@ -118,6 +118,13 @@
     CGContextSetShouldSmoothFonts(ctx, false);
     CGContextSetAllowsFontSmoothing(ctx, false);
 
+    if(xAxis) {
+        CGContextSaveGState(ctx);
+        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
+        [xAxis drawGridInContext:ctx withXScale:xscale andYScale:yscale];
+        CGContextRestoreGState(ctx);
+    }
+
     for (id<KPPlot> p in plots) {
         CGContextSaveGState(ctx);
         CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, (-plotb.origin.y)*yscale);
@@ -136,7 +143,7 @@
     
     if(xAxis) {
         CGContextSaveGState(ctx);
-        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, -xAxis.size-paddingBottom);
+        CGContextTranslateCTM(ctx, (-plotb.origin.x)*xscale, -paddingBottom);
         [xAxis drawInContext:ctx withXScale:xscale andYScale:yscale];
         [xAxis drawLabelsInContext:ctx withXScale:xscale andYScale:yscale];
         CGContextRestoreGState(ctx);
@@ -158,10 +165,10 @@
         if(plot.plotBounds.origin.x+plot.plotBounds.size.width >= plotb.origin.x+plotb.size.width && plot.padding > paddingRight) paddingRight = plot.padding;
         if(plot.plotBounds.origin.y+plot.plotBounds.size.height >= plotb.origin.y+plotb.size.height && plot.padding > paddingTop) paddingTop = plot.padding;
     }
-    [plots addObject:plot];
-    if(animated && [plot respondsToSelector:@selector(startAnimation)]) {
-        [plot startAnimation];
+    if(animated && [plot respondsToSelector:@selector(startAnimationWithDelay:)]) {
+        [plot startAnimationWithDelay:plots.count*0.2f];
     } 
+    [plots addObject:plot];
 }
 
 -(void)removePlot:(id<KPPlot>)plot
@@ -263,6 +270,16 @@
 {
     [super setFrame:frame];
     [self redraw];
+}
+
+-(CGRect)plotBounds
+{
+    return plotb;
+}
+
+-(void)setPlotBounds:(CGRect)plotBounds
+{
+    plotb = plotBounds;
 }
 
 @end

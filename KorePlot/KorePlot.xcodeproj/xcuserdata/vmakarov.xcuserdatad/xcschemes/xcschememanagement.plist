@@ -9,9 +9,19 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
+		<key>libKorePlot.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>5115E5001A0883FC00F330B4</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>9827F961192E126600508CD8</key>
 		<dict>
 			<key>primary</key>
