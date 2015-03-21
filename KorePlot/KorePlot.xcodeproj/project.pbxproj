@@ -22,6 +22,12 @@
 		5115E5231A08869A00F330B4 /* KPLinePlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9DF192E170700508CD8 /* KPLinePlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5115E5241A0886A400F330B4 /* KPBarPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9EA192F91B400508CD8 /* KPBarPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5115E5251A0886A900F330B4 /* KPLabel.h in Headers */ = {isa = PBXBuildFile; fileRef = 9827F9E6192F46A800508CD8 /* KPLabel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5115E52C1A088C4700F330B4 /* KPPlotView.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F9DC192E148400508CD8 /* KPPlotView.h */; };
+		5115E52D1A088C4C00F330B4 /* KPPlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F9E9192F8CC900508CD8 /* KPPlot.h */; };
+		5115E52E1A088C5300F330B4 /* KPXAxis.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 985BBFE3195D5772008D8C39 /* KPXAxis.h */; };
+		5115E52F1A088C5900F330B4 /* KPLinePlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F9DF192E170700508CD8 /* KPLinePlot.h */; };
+		5115E5301A088C5F00F330B4 /* KPBarPlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F9EA192F91B400508CD8 /* KPBarPlot.h */; };
+		5115E5311A088C6600F330B4 /* KPLabel.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F9E6192F46A800508CD8 /* KPLabel.h */; };
 		9827F966192E126600508CD8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F965192E126600508CD8 /* Foundation.framework */; };
 		9827F96B192E126600508CD8 /* KorePlot.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 9827F96A192E126600508CD8 /* KorePlot.h */; };
 		9827F974192E126600508CD8 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9827F973192E126600508CD8 /* XCTest.framework */; };
@@ -57,6 +63,12 @@
 			dstSubfolderSpec = 16;
 			files = (
 				9827F96B192E126600508CD8 /* KorePlot.h in CopyFiles */,
+				5115E52C1A088C4700F330B4 /* KPPlotView.h in CopyFiles */,
+				5115E52D1A088C4C00F330B4 /* KPPlot.h in CopyFiles */,
+				5115E52E1A088C5300F330B4 /* KPXAxis.h in CopyFiles */,
+				5115E52F1A088C5900F330B4 /* KPLinePlot.h in CopyFiles */,
+				5115E5301A088C5F00F330B4 /* KPBarPlot.h in CopyFiles */,
+				5115E5311A088C6600F330B4 /* KPLabel.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,6 +583,7 @@
 				5115E5131A0883FC00F330B4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9827F95D192E126600508CD8 /* Build configuration list for PBXProject "KorePlot" */ = {
 			isa = XCConfigurationList;
